@@ -1,8 +1,10 @@
 
 import React, { useState } from "react";
+import {useHistory} from 'react-router-dom';
 
 
 export default function () {
+    const history=useHistory();
     const [state, setState] = useState({
         email: "",
         password: "",
@@ -18,14 +20,18 @@ export default function () {
     
 const handleLogin=(e)=>{
     e.preventDefault();
-    console.log('aniii');
-
-    // history.push('/profile');
+    axios.post("/api/login",state).then(res=>{
+        if(res.data.status ==="success") {
+            localStorage.setItem('user',JSON.stringify({apiToken:res.data.api_token}));
+            history.push('/profile');
+        }
+    })
+    
+ ;
 }
 const handlechange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
-    console.log(name, value);
     setState({
         ...state,
         [name]: value,

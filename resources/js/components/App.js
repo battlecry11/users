@@ -9,6 +9,7 @@ import Login from './Login';
 import Register from './Register';
 import Home from './Home';
 import Profile from './Profile';
+import PrivateRoute from './PrivateRoute';
 
 
 function App() {
@@ -18,13 +19,11 @@ function App() {
         <Navbar />
       </div>
       <Switch>
-        <Route path="/login" > <Login /></Route>
-        
-        <Route path="/register" > <Register /></Route>
-        <Route path="/profile" > <Profile /></Route>
+        <Route exact path="/login" > <Login /></Route>
+        <Route  exact path="/register" > <Register /></Route>
+        <Route exact path="/" ><Home /> </Route>
+        <PrivateRoute exact path= "/profile"> <Profile/> </PrivateRoute>
 
-        
-        <Route path="/" exact><Home /> </Route>
 
       </Switch>
     </Router>

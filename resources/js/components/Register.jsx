@@ -15,7 +15,7 @@ export default function () {
     const handlechange = (e) => {
         const name = e.target.name;
         const value = e.target.value;
-        console.log(name, value);
+       
         setState({
             ...state,
             [name]: value,

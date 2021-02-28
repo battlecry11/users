@@ -21,6 +21,20 @@ class AuthController extends Controller
         $user=User::create($data);
         return ['status'=>'success','api_token'=>$user->api_token];
     }
+
+    public function login(Request $request){
+        $validator=validator($request->all(),[
+            'email'=> 'required|email',
+            'password'=>'required',
+        ]);
+        if($validator->fails()) return $validator->errors()->toJson();
+        if (!auth()->attempt($validator->validated(), true)) {
+            return response(['password' => 'პაროლი ან ელ-ფოსტა არასწორია.']);
+        }
+        $user = \Auth::user();
+        return ['status'=>'success','api_token'=>$user->api_token];
+        
+    }
    
     
    
