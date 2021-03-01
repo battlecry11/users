@@ -10,6 +10,7 @@ import Register from './Register';
 import Home from './Home';
 import Profile from './Profile';
 import PrivateRoute from './PrivateRoute';
+import AdminPanel from './AdminPanel';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Route  exact path="/register" > <Register /></Route>
         <Route exact path="/" ><Home /> </Route>
         <PrivateRoute exact path= "/profile"> <Profile/> </PrivateRoute>
+         <Route exact path="/admin" ><AdminPanel /> </Route> 
 
 
       </Switch>
