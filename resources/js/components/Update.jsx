@@ -1,16 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+
 
 export default function () {
+   
     const [state, setState] = useState({
-        name: "",
         email: "",
         password: "",
     });
-    const [error, setErrors] = useState({
-        name: "",
-        email: "",
-        password: "",
-    });
+    useEffect(() => {
+        axios.get("/api/admin").then((res) => {
+            if (res.data.status === "success") {
+                setUsers(res.data.users);
+                console.log(users);
+            }
+        });
+    }, [])
 
     const handlechange = (e) => {
         const name = e.target.name;
@@ -23,15 +27,11 @@ export default function () {
     };
     const handlesubmit = (e) => {
         e.preventDefault();
+        axios.post("/api/login",state);
+    
+ ;
 
-         console.log(state);
-        axios.post("/api/register", state).then((res) => {
-            if (res.data.status === "success") {
-                console.log("success");
-            } else {
-                setErrors(...res.data);
-            }
-        });
+      
     };
 
     return (
@@ -39,7 +39,7 @@ export default function () {
             <div className="row">
                 <div className="col-md-12">
                     <div className="card">
-                        <h3 className="card-header"> REGISTER</h3>
+                        <h3 className="card-header"> UPDATE</h3>
                         <div className="card-body">
                             <form onSubmit={handlesubmit}>
                                 <div className="form-group">
@@ -75,28 +75,14 @@ export default function () {
                                         id="emailHelp"
                                         className="form-text text-muted"
                                     >
-                                        We'll never share your email with anyone
-                                        else.
+                                
                                     </small>
-                                </div>
-                                <div className="form-group">
-                                    <label htmlFor="exampleInputPassword1">
-                                        Password
-                                    </label>
-                                    <input
-                                        type="password"
-                                        className="form-control"
-                                        id="exampleInputPassword1"
-                                        placeholder="Password"
-                                        name="password"
-                                        onChange={handlechange}
-                                    />
                                 </div>
 
                                 <div className="card-foot">
                                     <button className="btn btn-block btn-success">
                                         {" "}
-                                        Register Me
+                                        Update
                                     </button>
                                 </div>
                             </form>

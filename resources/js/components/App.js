@@ -11,6 +11,7 @@ import Home from './Home';
 import Profile from './Profile';
 import PrivateRoute from './PrivateRoute';
 import AdminPanel from './AdminPanel';
+import Update from './Update';
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
         <Route exact path="/" ><Home /> </Route>
         <PrivateRoute exact path= "/profile"> <Profile/> </PrivateRoute>
          <Route exact path="/admin" ><AdminPanel /> </Route> 
+         {/* <Route  path="/admin/update" > <Update /></Route> */}
 
 
       </Switch>
