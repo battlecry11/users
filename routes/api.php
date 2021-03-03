@@ -19,4 +19,5 @@ Route::post('/register',[AuthController::class,'register']);
 Route::post('/login',[AuthController::class, 'login']);
 Route::get('/admin',[AdminController::class,'getUsers']);
 Route::delete('/admin/delete/{user}',[AdminController::class,'destroy']);
-Route::get('/admin/update/{user}',[AdminController::class,'update']);
+Route::get('/admin/edit/{user}',[AdminController::class,'edit']);
+Route::put('/admin/update/{user}',[AdminController::class,'update']);

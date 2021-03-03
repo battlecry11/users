@@ -25,7 +25,7 @@ export default function () {
     };
     const editUser = (id) => {
      
-            history.push('/admin/update/'+id);
+            history.push('/admin/edit/'+id);
         }
 
         

@@ -12,8 +12,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::view('/{path?}', 'welcome');
-// Route::view('/{path1?}/{path2?}/{path3?}/{path4?}/{path5?}/{path6?}/{path7?}/{path8?}','welcome');
+// Route::view('/{path?}', 'welcome');
+Route::view('/{path1?}/{path2?}/{path3?}/{path4?}/{path5?}/{path6?}/{path7?}/{path8?}','welcome');
 
 
 // Auth::routes();

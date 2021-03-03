@@ -32,7 +32,7 @@ class AuthController extends Controller
             return response(['password' => 'პაროლი ან ელ-ფოსტა არასწორია.']);
         }
         $user = \Auth::user();
-        return ['status'=>'success','api_token'=>$user->api_token];
+        return ['status'=>'success','api_token'=>$user->api_token, 'isAdmin'=>$user->is_admin];
         
     }
    

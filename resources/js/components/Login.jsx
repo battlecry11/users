@@ -22,7 +22,7 @@ const handleLogin=(e)=>{
     e.preventDefault();
     axios.post("/api/login",state).then(res=>{
         if(res.data.status ==="success") {
-            localStorage.setItem('user',JSON.stringify({apiToken:res.data.api_token}));
+            localStorage.setItem('user',JSON.stringify({apiToken:res.data.api_token,isAdmin:res.data.isAdmin}));
             history.push('/profile');
         }
     })

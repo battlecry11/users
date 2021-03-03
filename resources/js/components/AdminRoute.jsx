@@ -22,10 +22,9 @@ export default function ({ children, ...rest }) {
             } else return Promise.reject(error);
         }
     );
-    console.log(user);
-    console.log(user?.apiToken ? 1 : 0);
+   
 
-    return user?.apiToken ? (
+    return user?.apiToken  && user?.isAdmin? (
         <Route {...rest}> {children}</Route>
     ) : (
         <Redirect to="/login" />
