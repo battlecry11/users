@@ -6,7 +6,7 @@ export default function () {
     const history=useHistory();
     const [users, setUsers] = useState([]);
     useEffect(() => {
-        axios.get("/api/admin").then((res) => {
+        axios.get("/api/admin/users").then((res) => {
             if (res.data.status === "success") {
                 setUsers(res.data.users);
                 console.log(users);
@@ -15,7 +15,7 @@ export default function () {
     }, []);
     const deleteUser = (id) => {
         // console.log("Hello World!");
-        axios.delete("/api/admin/delete/" + id).then((res) => {
+        axios.delete("/api/admin/users/delete/" + id).then((res) => {
             console.log(res);
             console.log(res.data);
 
@@ -25,15 +25,8 @@ export default function () {
     };
     const editUser = (id) => {
      
-            history.push('/admin/edit/'+id);
+            history.push('/admin/users/edit/'+id);
         }
-
-        
-    
-        
-
-    
-
     return (
         <table className="table table-striped">
             <thead>

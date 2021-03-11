@@ -5,6 +5,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\AdminController;
 
+use App\http\Controllers\Api\NewsController;
+use App\Http\Controllers\Api\ChangeNewsController;
+
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -17,7 +21,13 @@ use App\Http\Controllers\Api\AdminController;
 */
 Route::post('/register',[AuthController::class,'register']);
 Route::post('/login',[AuthController::class, 'login']);
-Route::get('/admin',[AdminController::class,'getUsers']);
-Route::delete('/admin/delete/{user}',[AdminController::class,'destroy']);
-Route::get('/admin/edit/{user}',[AdminController::class,'edit']);
-Route::put('/admin/update/{user}',[AdminController::class,'update']);
+Route::get('/admin/users',[AdminController::class,'getUsers']);
+Route::delete('/admin/users/delete/{user}',[AdminController::class,'destroy']);
+Route::get('/admin/users/edit/{user}',[AdminController::class,'edit']);
+Route::put('/admin/users/update/{user}',[AdminController::class,'update']);
+Route::post('/admin/addNews',[NewsController::class,'storeNews']);
+Route::get('/admin/news',[ChangeNewsController::class,'getNews']);
+Route::get('/admin/news/edit/{news}',[ChangeNewsController::class,'edit']);
+Route::delete('/admin/news/delete/{news}',[ChangeNewsController::class,'destroy']);
+
+ 

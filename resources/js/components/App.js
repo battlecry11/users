@@ -13,6 +13,8 @@ import PrivateRoute from './PrivateRoute';
 import AdminRoute from './AdminRoute';
 import AdminPanel from './AdminPanel';
 import Update from './Update';
+import News from './News';
+import AddNews from './AddNews';
 
 
 function App() {
@@ -26,8 +28,10 @@ function App() {
         <Route  exact path="/register" > <Register /></Route>
         <Route exact path="/" ><Home /> </Route>
         <PrivateRoute exact path= "/profile" > <Profile/> </PrivateRoute>
-         <AdminRoute exact path="/admin" ><AdminPanel /> </AdminRoute> 
-         <AdminRoute exact path="/admin/edit/:id" > <Update /></AdminRoute>
+         <AdminRoute exact path="/admin/users" ><AdminPanel /> </AdminRoute> 
+         <AdminRoute exact path="/admin/users/edit/:id" > <Update /></AdminRoute>
+         <Route  exact path="/admin/news" > <News/></Route>
+         <Route  exact path="/admin/addNews" > <AddNews/></Route>
 
 
       </Switch>
