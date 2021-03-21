@@ -23,7 +23,12 @@ const handleLogin=(e)=>{
     axios.post("/api/login",state).then(res=>{
         if(res.data.status ==="success") {
             localStorage.setItem('user',JSON.stringify({apiToken:res.data.api_token,isAdmin:res.data.isAdmin}));
-            history.push('/profile');
+               
+            if(res.data.isAdmin==1 ){history.push('/admin')}
+            else{
+                history.push('/profile');
+            };
+           
         }
     })
     

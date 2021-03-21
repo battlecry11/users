@@ -18,13 +18,14 @@ class ChangeNewsController extends Controller
     public function destroy($id)
     {
         $news = News::find($id);
+        deleteFile($news->image);
         $news->delete();
         return response()->json('News deleted successfully');
     }
 
     public function edit(News $news)
     {
-        return response(["status" => "success", "user" => $news]);
+        return response(["status" => "success", "news" => $news]);
     }
     
    
