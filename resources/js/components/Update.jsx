@@ -9,7 +9,7 @@ export default function () {
     const [user, setUser] = useState(fields);
     const { id } = useParams();
     useEffect(() => {
-        axios.get("/api/admin/edit/" + id).then((res) => {
+        axios.get("/api/admin/user/edit/" + id).then((res) => {
             if (res.data.status === "success") {
                 setUser({ ...fields, ...res.data.user });
             }
@@ -27,9 +27,9 @@ export default function () {
     };
     const handlesubmit = (e) => {
         e.preventDefault();
-        axios.put("/api/admin/update/"+id, user).then(res=>{
+        axios.put("/api/admin/users/update/"+id, user).then(res=>{
             if(res.data.status==="success"){
-                history.push("/admin");
+                history.push("/admin/users");
 
             }
         })

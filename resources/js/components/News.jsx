@@ -38,6 +38,7 @@ export default function () {
                     <th scope="col">#Id</th>
                     <th scope="col">Title</th>
                     <th scope="col">Description</th>
+                    <th scope="col">Long Description</th>
                     <th scope="col">Image</th>
                     <th scope="col">Edit</th>
                     <th scope="col">Delete</th>
@@ -49,6 +50,7 @@ export default function () {
                         <th scope="col">{data["id"]}</th>
                         <th scope="col">{data["title"]}</th>
                         <th scope="col">{data["description"]}</th>
+                        <th scope="col">{data["lDescription"]}</th>
                         <th scope="col"><img src={data["image"]}  width='100px' height='100px'/></th>
                         <th scope="col"> <button onClick={()=>editNews(data.id)} className="btn btn-block btn-success">
                                        

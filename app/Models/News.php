@@ -9,4 +9,9 @@ class News extends Model
 {
     use HasFactory;
     protected $fillable = ['title', 'description','lDescription','image'];
+
+    public function images(){
+
+        return $this->hasMany(MulFile::class);
+}
 }

@@ -6,14 +6,17 @@ export default function () {
     const [state, setState] = useState({
         title: "",
         description: "",
-        image: "",
         lDescription:"",
+        image: "",
+        images:[],
+        
     });
     const [error, setErrors] = useState({
         title: "",
         description: "",
         lDescription:"",
         image: "",
+        images:[],
     });
 
     const [isFilePicked, setIsFilePicked] = useState(false);
@@ -36,15 +39,24 @@ export default function () {
         // console.log(state);
         console.log(isFilePicked);
     };
+   const multipleChangeHandler=(e)=>{
+    setState({ ...state, images: e.target.files });
+   }
     const handlesubmit = (e) => {
         e.preventDefault();
         let data = new FormData();
+        let images = state.images;
+        delete state.images;
         Object.keys(state).map((key) =>
             data.append(
                 key,
                 key === "image" ? state[key] : JSON.stringify(state[key])
             )
-        );
+        ); 
+        for (let i = 0 ; i < images.length ; i++) {
+            data.append('images[' + i+ ']',images[i]);
+        }
+        
         console.log(state);
 
         axios.post("/api/admin/addNews", data).then((res) => {
@@ -116,7 +128,7 @@ export default function () {
                                     />
                                      <input
                                         type="file"
-                                        name="image"
+                                        name="images"
                                         onChange={multipleChangeHandler}
                                    multiple />
 

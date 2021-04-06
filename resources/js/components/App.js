@@ -16,6 +16,7 @@ import Update from './Update';
 import News from './News';
 import AddNews from './AddNews';
 import AdminProfile from './AdminProfile';
+import EditNews from './EditNews';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
         <AdminRoute exact path="/admin" ><AdminProfile /> </AdminRoute> 
          <AdminRoute exact path="/admin/users" ><AdminPanel /> </AdminRoute> 
          <AdminRoute exact path="/admin/users/edit/:id" > <Update /></AdminRoute>
+         <AdminRoute exact path="/admin/news/edit/:id" > <EditNews /></AdminRoute>
          <Route  exact path="/admin/news" > <News/></Route>
          <Route  exact path="/admin/addNews" > <AddNews/></Route>
 
