@@ -21,14 +21,14 @@ use App\Http\Controllers\Api\ChangeNewsController;
 */
 Route::post('/register',[AuthController::class,'register']);
 Route::post('/login',[AuthController::class, 'login']);
-Route::get('/admin/users',[AdminController::class,'getUsers']);
-Route::delete('/admin/users/delete/{user}',[AdminController::class,'destroy']);
-Route::get('/admin/users/edit/{user}',[AdminController::class,'edit']);
-Route::put('/admin/users/update/{user}',[AdminController::class,'update']);
-Route::put('/admin/news/update/{news}',[ChangeNewsController::class,'update']);
-Route::post('/admin/addNews',[NewsController::class,'storeNews']);
-Route::get('/admin/news',[ChangeNewsController::class,'getNews']);
-Route::get('/admin/news/edit/{news}',[ChangeNewsController::class,'edit']);
-Route::delete('/admin/news/delete/{news}',[ChangeNewsController::class,'destroy']);
-Route::delete('/admin/news/deleteImage/{id}',[ChangeNewsController::class,'destroyImage']);
+// Route::get('/admin/users',[AdminController::class,'getUsers']);
+// Route::delete('/admin/users/delete/{user}',[AdminController::class,'destroy']);
+// Route::get('/admin/users/edit/{user}',[AdminController::class,'edit']);
+// Route::put('/admin/users/update/{user}',[AdminController::class,'update']);
+// Route::put('/admin/news/update/{news}',[ChangeNewsController::class,'update']);
+// Route::post('/admin/addNews',[NewsController::class,'storeNews']);
+// Route::get('/admin/news',[ChangeNewsController::class,'getNews']);
+// Route::get('/admin/news/edit/{news}',[ChangeNewsController::class,'edit']);
+// Route::delete('/admin/news/delete/{news}',[ChangeNewsController::class,'destroy']);
+// Route::delete('/admin/news/deleteImage/{id}',[ChangeNewsController::class,'destroyImage']);
  
